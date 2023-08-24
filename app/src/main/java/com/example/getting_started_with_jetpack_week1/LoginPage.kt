@@ -12,8 +12,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -36,16 +40,17 @@ class LoginPage : ComponentActivity() {
         }
     }
 }
+@OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 
 @Composable
 
 fun Login(){
-    var username by remember {
+    val username by remember {
         mutableStateOf("")
     }
 
-    var password by remember {
+    val password by remember {
         mutableStateOf("")
     }
 
@@ -62,8 +67,10 @@ fun Login(){
 
         Text(text = "Welcome to Android Studio. Login!!", color = Color.Black, fontSize = 30.sp)
         OutlinedTextField(value = username,
-            onValueChange = {username },
+            leadingIcon = { Icon(Icons.Default.Person, contentDescription = "Person")},
+            onValueChange = {username},
             label = { Text(text = "Username")},
+
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color.White)
@@ -73,7 +80,8 @@ fun Login(){
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(value = password,
-            onValueChange = {password },
+            leadingIcon = { Icon(Icons.Default.Lock, contentDescription = "Lock")},
+            onValueChange = {password},
             label = { Text(text = "Password")},
             modifier = Modifier
                 .fillMaxWidth()
@@ -82,6 +90,7 @@ fun Login(){
         )
 
         Spacer(modifier = Modifier.height(15.dp))
+
         Button(onClick = { /*TODO*/ },
             modifier = Modifier.fillMaxWidth()
 

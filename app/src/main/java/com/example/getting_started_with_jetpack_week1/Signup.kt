@@ -11,10 +11,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -26,11 +26,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.input.pointer.PointerIconDefaults.Text
+import androidx.compose.ui.semantics.SemanticsProperties.Text
+import androidx.compose.ui.text.input.KeyboardType.Companion.Text
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.getting_started_with_jetpack_week1.ui.theme.Getting_started_with_jetpack_week1Theme
+import androidx.compose.material3.Text as Text1
 
 class Signup : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +46,7 @@ class Signup : ComponentActivity() {
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 
 @Composable
@@ -81,10 +86,10 @@ fun SignUp(){
 
     ) {
 
-        Text(text = "Sign Up Here", color = Color.Green, fontSize = 20.sp)
-        OutlinedTextField(value = firstname,
-            onValueChange = firstname,
-            label = { Text(text = "First name")},
+        Text1(text = "Sign Up Here", color = Color.Green, fontSize = 20.sp)
+        TextField(value = firstname,
+            onValueChange = {firstname},
+            label = { Text1(text = "First name") },
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color.Green)
@@ -94,8 +99,8 @@ fun SignUp(){
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(value = lastname,
-            onValueChange = lastname,
-            label = { Text(text = "Last name")},
+            onValueChange ={ lastname},
+            label = { Text1(text = "Last name") },
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color.Green)
@@ -105,8 +110,8 @@ fun SignUp(){
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(value = number,
-            onValueChange = number,
-            label = { Text(text = "Phone number")},
+            onValueChange = {number},
+            label = { Text1(text = "Phone number") },
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color.Green)
@@ -116,8 +121,8 @@ fun SignUp(){
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(value = email,
-            onValueChange = email,
-            label = { Text(text = "Email address")},
+            onValueChange = {email},
+            label = { Text1(text = "Email address") },
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color.Green)
@@ -127,8 +132,8 @@ fun SignUp(){
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(value = password,
-            onValueChange = password,
-            label = { Text(text = "Password")},
+            onValueChange = {password},
+            label = { Text1(text = "Password")},
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color.Green)
@@ -139,8 +144,9 @@ fun SignUp(){
         Button(onClick = { /*TODO*/ },
 
             modifier = Modifier.fillMaxWidth())
+
         {
-            Text(text = "SUBMIT")
+            Text1(text = "SUBMIT")
         }
     }
 

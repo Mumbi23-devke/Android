@@ -2,4 +2,5 @@
     <string name="app_name">getting_started_with_jetpack_week1</string>
     <string name="title_activity_login_page">Login_page</string>
     <string name="title_activity_signup">Signup</string>
+    <string name="title_activity_image">ImageActivity</string>
 </resources>
