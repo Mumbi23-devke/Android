@@ -3,4 +3,6 @@
     <string name="title_activity_login_page">Login_page</string>
     <string name="title_activity_signup">Signup</string>
     <string name="title_activity_image">ImageActivity</string>
+    <string name="title_activity_list_viewex">ListViewex</string>
+    <string name="title_activity_mpesaliastview">Mpesaliastview</string>
 </resources>

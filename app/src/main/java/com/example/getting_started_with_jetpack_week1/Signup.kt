@@ -1,5 +1,6 @@
 package com.example.getting_started_with_jetpack_week1
 
+import android.graphics.drawable.Icon
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,8 +11,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -89,6 +94,7 @@ fun SignUp(){
         Text1(text = "Sign Up Here", color = Color.Green, fontSize = 20.sp)
         TextField(value = firstname,
             onValueChange = {firstname},
+            leadingIcon = { Icon(Icons.Default.Person, contentDescription = "Person")},
             label = { Text1(text = "First name") },
             modifier = Modifier
                 .fillMaxWidth()
@@ -99,11 +105,13 @@ fun SignUp(){
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(value = lastname,
+            leadingIcon = { Icon(Icons.Default.Person, contentDescription = "Person")},
             onValueChange ={ lastname},
             label = { Text1(text = "Last name") },
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color.Green)
+
 
         )
 
@@ -132,6 +140,7 @@ fun SignUp(){
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(value = password,
+            leadingIcon = { Icon(Icons.Default.Lock, contentDescription = "Person")},
             onValueChange = {password},
             label = { Text1(text = "Password")},
             modifier = Modifier

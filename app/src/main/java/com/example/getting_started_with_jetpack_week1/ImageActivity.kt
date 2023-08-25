@@ -56,7 +56,7 @@ fun image(){
             modifier = Modifier
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top
+            verticalArrangement = Arrangement.Center
 
                 )
 
@@ -72,9 +72,9 @@ Image(painter = painterResource(id = R.drawable.eiffeltower),
         }
 
     Text(text = "I miss you!!")
-    OutlinedTextField(value = name,
-        onValueChange = {name},
-
-    )
+    OutlinedTextField(
+        value = name,
+        onValueChange = { name },
+        )
 
 }
