@@ -50,17 +50,15 @@ fun Home(){
             .fillMaxSize()  // covers entire page,ie, width and height
 
 
-
-
     ) {
         Text(text = "This is My App!!!", color = Color.Magenta, fontSize = 20.sp )
         Spacer(modifier = Modifier.height(15.dp))
 
-        var login = LocalContext.current
+        val login = LocalContext.current
 
         Button(onClick = { 
                          
-                         login.startActivity(Intent(login, Signup::class.java))
+            login.startActivity(Intent(login, Signup::class.java))
         },
             shape = RoundedCornerShape(5.dp),
             modifier = Modifier.fillMaxWidth()
@@ -71,6 +69,20 @@ fun Home(){
         }
         Spacer(modifier = Modifier.fillMaxWidth())
 
+        val scroll = LocalContext.current
+
+        Button(onClick = {
+
+            scroll.startActivity(Intent(login, ScrollableListview::class.java))
+        },
+            shape = RoundedCornerShape(5.dp),
+            modifier = Modifier.fillMaxWidth()
+
+        ) {
+
+            Text(text = "Scroll")
+        }
+        Spacer(modifier = Modifier.fillMaxWidth())
 
 }
 

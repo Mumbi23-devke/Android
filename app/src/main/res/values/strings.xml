@@ -5,4 +5,5 @@
     <string name="title_activity_image">ImageActivity</string>
     <string name="title_activity_list_viewex">ListViewex</string>
     <string name="title_activity_mpesaliastview">Mpesaliastview</string>
+    <string name="title_activity_scrollable_listview">ScrollableListview</string>
 </resources>
