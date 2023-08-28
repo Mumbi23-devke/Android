@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -82,7 +83,22 @@ fun Home(){
 
             Text(text = "Scroll")
         }
+
         Spacer(modifier = Modifier.fillMaxWidth())
+
+        val intents = LocalContext.current
+
+        Button(onClick = {
+
+            intents.startActivity(Intent(login, MainIntents::class.java))
+        },
+            shape = RoundedCornerShape(5.dp),
+            modifier = Modifier.fillMaxWidth()
+
+        ) {
+
+            Text(text = "Intents")
+        }
 
 }
 
