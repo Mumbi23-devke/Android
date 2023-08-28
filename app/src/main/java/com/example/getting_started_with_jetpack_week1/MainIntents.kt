@@ -1,6 +1,8 @@
 package com.example.getting_started_with_jetpack_week1
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -25,6 +27,9 @@ import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 
 class MainIntents : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -134,7 +139,17 @@ fun My_intents(){
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Button(onClick = { /*TODO*/ },
+            val calllaunch = LocalContext.current
+
+        Button(onClick = {
+
+            val phoneNumber = "+254 7653 99187"
+            val callIntent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$phoneNumber"))
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+            { ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), 1) }
+            else { calllaunch.startActivity(callIntent) }
+
+        },
             shape = RoundedCornerShape(15.dp),
             modifier = Modifier
                 .fillMaxWidth()
